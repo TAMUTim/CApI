@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "CApI/proto";
+
+package quote;
+
+service QuoteGrabber {
+  rpc GrabQuote (QuoteRequest) returns (QuoteReply) {}
+}
+
+message QuoteRequest {
+  string temp = 1;
+}
+
+message QuoteReply {
+  string quote = 1;
+  google.protobuf.Timestamp time = 2;
+}
